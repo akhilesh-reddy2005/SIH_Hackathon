@@ -1,3 +1,4 @@
+/* General App styles */
 .App {
   text-align: center;
 }
@@ -35,4 +36,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ✅ Navbar adjustments */
+.navbar {
+  height: 60px; /* smaller height */
+  padding: 0 1rem; /* reduce vertical padding */
+  display: flex;
+  align-items: center;
+}
+
+/* ✅ Ensure logo is larger & centered in navbar */
+.navbar-brand img {
+  height: 50px; /* bigger logo */
+  width: auto;
+}
+
+/* Push content below navbar */
+body {
+  padding-top: 90px;  /* adjust to match your navbar+logo height */
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
 }

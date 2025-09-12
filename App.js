@@ -11,31 +11,34 @@ function App() {
     <AuthProvider>
       <Router>
         <Navbar />
-        <Routes>
-          {/* Auth Routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+        {/* Main content wrapper with padding */}
+        <main style={{ paddingTop: "70px" }}>
+          <Routes>
+            {/* Auth Routes */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-          {/* Dashboard */}
-          <Route path="/dashboard" element={<Dashboard />} />
+            {/* Dashboard */}
+            <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Placeholder routes for extra features */}
-          <Route
-            path="/chatbot"
-            element={<h2 className="text-center mt-5">AI Chatbot Page</h2>}
-          />
-          <Route
-            path="/nutrition"
-            element={<h2 className="text-center mt-5">Nutrient Tracker Page</h2>}
-          />
-          <Route
-            path="/profile"
-            element={<h2 className="text-center mt-5">User Profile Page</h2>}
-          />
+            {/* Placeholder routes for extra features */}
+            <Route
+              path="/chatbot"
+              element={<h2 className="text-center mt-5">AI Chatbot Page</h2>}
+            />
+            <Route
+              path="/nutrition"
+              element={<h2 className="text-center mt-5">Nutrient Tracker Page</h2>}
+            />
+            <Route
+              path="/profile"
+              element={<h2 className="text-center mt-5">User Profile Page</h2>}
+            />
 
-          {/* Redirect root ("/") to dashboard */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        </Routes>
+            {/* Redirect root ("/") to dashboard */}
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          </Routes>
+        </main>
       </Router>
     </AuthProvider>
   );
