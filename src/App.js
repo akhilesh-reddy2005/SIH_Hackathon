@@ -4,8 +4,12 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import { AuthProvider } from "./context/AuthContext";
 import Profile from "./pages/Profile";
+import LogMeal from "./components/LogMeal";
+import FoodLog from "./components/FoodLog";
+import DailyMacros from "./components/DailyMacros";
+import { AuthProvider } from "./context/AuthContext";
+import Nutrition from "./pages/Nutrition";
 
 function App() {
   return (
@@ -27,16 +31,18 @@ function App() {
               path="/chatbot"
               element={<h2 className="text-center mt-5">AI Chatbot Page</h2>}
             />
-            <Route
-              path="/nutrition"
-              element={<h2 className="text-center mt-5">Nutrient Tracker Page</h2>}
-            />
+
+            {/* Nutrition Routes */}
+            <Route path="/nutrition/logmeal" element={<LogMeal />} />
+            <Route path="/nutrition/foodlog" element={<FoodLog />} />
+            <Route path="/nutrition/dailymacros" element={<DailyMacros />} />
 
             {/* Profile Page */}
             <Route path="/profile" element={<Profile />} />
 
             {/* Redirect root ("/") to dashboard */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/nutrition" element={<Nutrition />} />
           </Routes>
         </main>
       </Router>
