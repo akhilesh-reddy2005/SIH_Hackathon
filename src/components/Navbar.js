@@ -10,7 +10,7 @@ function Navbar() {
       className="navbar navbar-expand-lg fixed-top"
       style={{
         backgroundColor: "#28a745",
-        height: "60px",
+        height: "70px",
         padding: "0 1rem",
       }}
     >
@@ -21,7 +21,7 @@ function Navbar() {
             src="/logo.png"
             alt="Logo"
             style={{
-              maxHeight: "100px",
+              height: "50px",   // ✅ Fixed size (smaller than navbar height)
               width: "auto",
               objectFit: "contain",
             }}
@@ -48,28 +48,30 @@ function Navbar() {
               <>
                 <li className="nav-item">
                   <NavLink className="nav-link text-white fw-semibold" to="/dashboard">
-                    Tracking
+                    Dashboard
                   </NavLink>
                 </li>
-
+                <li className="nav-item">
+                  <NavLink className="nav-link text-white fw-semibold" to="/">
+                    Live Tracking
+                  </NavLink>
+                </li>
                 <li className="nav-item">
                   <NavLink className="nav-link text-white fw-semibold" to="/chatbot">
                     Chatbot
                   </NavLink>
                 </li>
-
+                
                 <li className="nav-item">
                   <NavLink className="nav-link text-white fw-semibold" to="/nutrition">
                     Nutrition
                   </NavLink>
                 </li>
-
                 <li className="nav-item">
                   <NavLink className="nav-link text-white fw-semibold" to="/profile">
                     Profile
                   </NavLink>
                 </li>
-
                 <li className="nav-item ms-lg-2">
                   <button
                     className="btn btn-light btn-sm fw-semibold"
