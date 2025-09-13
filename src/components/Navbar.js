@@ -1,29 +1,38 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../context/AuthContext.js"; 
+import { useAuth } from "../context/AuthContext.js";
 
 function Navbar() {
   const { isAuthenticated, logout } = useAuth();
 
   return (
     <nav
-      className="navbar navbar-expand-lg fixed-top"
+      className="navbar navbar-expand-lg navbar-dark fixed-top"
       style={{
         backgroundColor: "#28a745",
-        height: "70px",
+        height: "80px",
         padding: "0 1rem",
       }}
     >
       <div className="container-fluid d-flex align-items-center">
         {/* Brand / Logo */}
-        <Link className="navbar-brand d-flex align-items-center" to="/dashboard">
+        <Link
+          className="navbar-brand d-flex align-items-center"
+          to="/dashboard"
+          style={{ textDecoration: "none" }}
+        >
           <img
             src="/logo.png"
             alt="Logo"
             style={{
-              height: "50px",   // ✅ Fixed size (smaller than navbar height)
+              height: "64px",
               width: "auto",
               objectFit: "contain",
+              backgroundColor: "#ffffff",
+              padding: "6px",
+              borderRadius: "8px",
+              boxShadow: "0 1px 4px rgba(0,0,0,0.15)",
+              marginRight: "12px",
             }}
           />
         </Link>
@@ -46,49 +55,55 @@ function Navbar() {
           <ul className="navbar-nav ms-auto align-items-lg-center">
             {isAuthenticated ? (
               <>
-                <li className="nav-item">
+                <li className="nav-item mx-2">
                   <NavLink className="nav-link text-white fw-semibold" to="/dashboard">
                     Dashboard
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link text-white fw-semibold" to="/">
-                    Live Tracking
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link text-white fw-semibold" to="/chatbot">
+                <li className="nav-item mx-2">
+                  <a
+                    href="https://v0.app/chat/remix-of-fitness-chatbot-wGK2IJgxrk1?b=v0-preview-mW6ISn0vS4d&f=1&path=%2F"
+                    className="nav-link text-white fw-semibold"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Chatbot
-                  </NavLink>
+                  </a>
                 </li>
-                
-                <li className="nav-item">
+                <li className="nav-item mx-2">
+                  <a
+                    href="https://9000-firebase-studio-1757676485213.cluster-m7dwy2bmizezqukxkuxd55k5ka.cloudworkstations.dev"
+                    className="nav-link text-white fw-semibold"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Tracking
+                  </a>
+                </li>
+                <li className="nav-item mx-2">
                   <NavLink className="nav-link text-white fw-semibold" to="/nutrition">
                     Nutrition
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item mx-2">
                   <NavLink className="nav-link text-white fw-semibold" to="/profile">
                     Profile
                   </NavLink>
                 </li>
-                <li className="nav-item ms-lg-2">
-                  <button
-                    className="btn btn-light btn-sm fw-semibold"
-                    onClick={logout}
-                  >
+                <li className="nav-item ms-lg-3">
+                  <button className="btn btn-light btn-sm fw-semibold" onClick={logout}>
                     Logout
                   </button>
                 </li>
               </>
             ) : (
               <>
-                <li className="nav-item">
+                <li className="nav-item mx-2">
                   <NavLink className="nav-link text-white fw-semibold" to="/login">
                     Login
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item mx-2">
                   <NavLink className="nav-link text-white fw-semibold" to="/register">
                     Register
                   </NavLink>
