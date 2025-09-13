@@ -4,8 +4,10 @@ const exerciseCategories = {
   "Upper Body": [
     {
       name: "Push-ups",
-      image: "https://tse1.explicit.bing.net/th/id/OIP.vkYW0d7DZiZgFJfFNy01TQHaE8?w=640&h=427&rs=1&pid=ImgDetMain&o=7&rm=3",
-      workoutImage: "https://th.bing.com/th/id/OIP.mBiapOkcY21ldGCOjtw75wHaFj?w=259&h=194&c=7&r=0&o=5&dpr=1.1&pid=1.7   ",
+      image:
+        "https://tse1.explicit.bing.net/th/id/OIP.vkYW0d7DZiZgFJfFNy01TQHaE8?w=640&h=427&rs=1&pid=ImgDetMain&o=7&rm=3",
+      workoutImage:
+        "https://th.bing.com/th/id/OIP.mBiapOkcY21ldGCOjtw75wHaFj?w=259&h=194&c=7&r=0&o=5&dpr=1.1&pid=1.7",
       instructions: [
         "Place your hands slightly wider than shoulder-width apart.",
         "Keep your body in a straight line from head to heels.",
@@ -17,7 +19,8 @@ const exerciseCategories = {
     {
       name: "Shoulder Press",
       image: "https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg",
-      workoutImage: "https://images.pexels.com/photos/2261478/pexels-photo-2261478.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/2261478/pexels-photo-2261478.jpeg",
       instructions: [
         "Hold dumbbells at shoulder height, palms facing forward.",
         "Press weights overhead until arms are fully extended.",
@@ -30,7 +33,8 @@ const exerciseCategories = {
     {
       name: "Squats",
       image: "https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg",
-      workoutImage: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg",
       instructions: [
         "Stand with feet shoulder-width apart, toes pointing slightly outward.",
         "Keep your back straight and chest up.",
@@ -41,7 +45,8 @@ const exerciseCategories = {
     {
       name: "Lunges",
       image: "https://images.pexels.com/photos/3076511/pexels-photo-3076511.jpeg",
-      workoutImage: "https://images.pexels.com/photos/843658/pexels-photo-843658.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/843658/pexels-photo-843658.jpeg",
       instructions: [
         "Stand tall with feet hip-width apart.",
         "Step forward with one leg and lower hips until knees are 90°.",
@@ -54,7 +59,8 @@ const exerciseCategories = {
     {
       name: "Plank",
       image: "https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg",
-      workoutImage: "https://images.pexels.com/photos/376401/pexels-photo-376401.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/376401/pexels-photo-376401.jpeg",
       instructions: [
         "Place forearms on ground, elbows under shoulders.",
         "Keep body in a straight line head-to-heels.",
@@ -65,7 +71,8 @@ const exerciseCategories = {
     {
       name: "Sit-ups",
       image: "https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg",
-      workoutImage: "https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg",
       instructions: [
         "Lie on your back with knees bent, feet flat.",
         "Cross arms over chest or place behind head.",
@@ -78,7 +85,8 @@ const exerciseCategories = {
     {
       name: "Jumping Jacks",
       image: "https://images.pexels.com/photos/6453398/pexels-photo-6453398.jpeg",
-      workoutImage: "https://images.pexels.com/photos/6454071/pexels-photo-6454071.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/6454071/pexels-photo-6454071.jpeg",
       instructions: [
         "Stand upright with feet together, arms at sides.",
         "Jump while spreading legs and raising arms overhead.",
@@ -89,7 +97,8 @@ const exerciseCategories = {
     {
       name: "Burpees",
       image: "https://images.pexels.com/photos/4761784/pexels-photo-4761784.jpeg",
-      workoutImage: "https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg",
       instructions: [
         "Start standing, drop into squat with hands down.",
         "Kick feet back into push-up position.",
@@ -102,7 +111,8 @@ const exerciseCategories = {
     {
       name: "Forward Bend",
       image: "https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg",
-      workoutImage: "https://images.pexels.com/photos/4056725/pexels-photo-4056725.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/4056725/pexels-photo-4056725.jpeg",
       instructions: [
         "Stand tall with feet hip-width apart.",
         "Bend forward at hips, letting arms dangle.",
@@ -113,7 +123,8 @@ const exerciseCategories = {
     {
       name: "Cat-Cow Stretch",
       image: "https://images.pexels.com/photos/4056724/pexels-photo-4056724.jpeg",
-      workoutImage: "https://images.pexels.com/photos/3822179/pexels-photo-3822179.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/3822179/pexels-photo-3822179.jpeg",
       instructions: [
         "Start on all fours, wrists under shoulders, knees under hips.",
         "Arch your back (Cow), lifting head and tailbone.",
@@ -126,7 +137,8 @@ const exerciseCategories = {
     {
       name: "Mountain Climbers",
       image: "https://images.pexels.com/photos/3823036/pexels-photo-3823036.jpeg",
-      workoutImage: "https://images.pexels.com/photos/3823038/pexels-photo-3823038.jpeg",
+      workoutImage:
+        "https://cdn.muscleandstrength.com/sites/default/files/beginner_full_body_-_1200x630.jpg",
       instructions: [
         "Start in plank position, hands under shoulders.",
         "Drive one knee toward chest, then switch quickly.",
@@ -136,7 +148,8 @@ const exerciseCategories = {
     {
       name: "Burpee Tuck Jumps",
       image: "https://images.pexels.com/photos/4761785/pexels-photo-4761785.jpeg",
-      workoutImage: "https://images.pexels.com/photos/4761791/pexels-photo-4761791.jpeg",
+      workoutImage:
+        "https://images.pexels.com/photos/4761791/pexels-photo-4761791.jpeg",
       instructions: [
         "Perform a burpee and jump explosively.",
         "Tuck knees toward chest mid-air.",
@@ -177,12 +190,24 @@ function Dashboard() {
         <div className="row g-4">
           {/* Left Panel */}
           <div className="col-lg-6">
+            {/* Gym Photo */}
             <img
               src={selectedExercise.workoutImage}
               alt={selectedExercise.name}
               className="img-fluid rounded mb-3 shadow-sm"
               style={{ height: "250px", objectFit: "cover", width: "100%" }}
             />
+
+            {/* Motivational Fitness Video (YouTube Embed) */}
+            <div className="ratio ratio-16x9 mb-3 shadow-sm">
+              <iframe
+    src="https://www.youtube.com/embed/_JRefJH6N00?autoplay=1&mute=1&loop=1&playlist=_JRefJH6N00"
+    title="Fitness Motivation"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+            </div>
+
             <p className="text-center fw-semibold mb-3">
               {selectedExercise.name} Session
             </p>

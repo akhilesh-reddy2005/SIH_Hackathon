@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext.js"; 
 
 function Navbar() {
   const { isAuthenticated, logout } = useAuth();
@@ -58,7 +58,6 @@ function Navbar() {
                   </NavLink>
                 </li>
 
-                {/* Single Nutrition Page */}
                 <li className="nav-item">
                   <NavLink className="nav-link text-white fw-semibold" to="/nutrition">
                     Nutrition

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { db, auth } from "../firebase.js"; // ✅ fixed .js
 
 function Register() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    password: "", // ✅ added password field
     gender: "",
     dob: "",
     height: "",
@@ -18,6 +22,9 @@ function Register() {
     allergies: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,10 +35,34 @@ function Register() {
   };
 
   // Handle form submit
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("User Registered:", formData);
-    alert("Registration Successful!");
+    setLoading(true);
+
+    try {
+      // ✅ Create user in Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      const user = userCredential.user;
+
+      // ✅ Save extra data in Firestore under "users" collection
+      await setDoc(doc(db, "users", user.uid), {
+        ...formData,
+        uid: user.uid,
+      });
+
+      alert("✅ Registration Successful!");
+      navigate("/login");
+    } catch (error) {
+      console.error("Registration Error:", error);
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -67,6 +98,7 @@ function Register() {
                 />
               </div>
             </div>
+
             <div className="row g-3 mt-2">
               <div className="col-md-6">
                 <input
@@ -79,6 +111,20 @@ function Register() {
                   required
                 />
               </div>
+              <div className="col-md-6">
+                <input
+                  type="password"
+                  className="form-control"
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="row g-3 mt-2">
               <div className="col-md-6">
                 <select
                   className="form-select"
@@ -93,16 +139,16 @@ function Register() {
                   <option>Other</option>
                 </select>
               </div>
-            </div>
-            <div className="mt-2">
-              <input
-                type="date"
-                className="form-control"
-                name="dob"
-                value={formData.dob}
-                onChange={handleChange}
-                required
-              />
+              <div className="col-md-6">
+                <input
+                  type="date"
+                  className="form-control"
+                  name="dob"
+                  value={formData.dob}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
             </div>
           </section>
 
@@ -205,7 +251,7 @@ function Register() {
               type="text"
               className="form-control mb-2"
               name="conditions"
-              placeholder="Medical Conditions (e.g., Diabetes, Hypertension)"
+              placeholder="Medical Conditions"
               value={formData.conditions}
               onChange={handleChange}
             />
@@ -213,7 +259,7 @@ function Register() {
               type="text"
               className="form-control"
               name="allergies"
-              placeholder="Allergies (e.g., Peanuts, Dairy, Gluten)"
+              placeholder="Allergies"
               value={formData.allergies}
               onChange={handleChange}
             />
@@ -221,8 +267,8 @@ function Register() {
 
           {/* Submit & Login */}
           <div className="d-grid">
-            <button type="submit" className="btn btn-success">
-              Register
+            <button type="submit" className="btn btn-success" disabled={loading}>
+              {loading ? "Registering..." : "Register"}
             </button>
           </div>
           <p className="text-center mt-3">

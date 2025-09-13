@@ -1,15 +1,28 @@
-import React from "react";
-import { useAuth } from "../context/AuthContext";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.js"; // ✅ fixed .js
 
 function Login() {
-  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    login();
-    navigate("/dashboard");
+    setLoading(true);
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("✅ Login Successful!");
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Login Error:", error);
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,6 +43,8 @@ function Login() {
               type="email"
               className="form-control"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -40,12 +55,14 @@ function Login() {
               type="password"
               className="form-control"
               placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
-          <button type="submit" className="btn btn-success w-100">
-            Login
+          <button type="submit" className="btn btn-success w-100" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
@@ -59,7 +76,7 @@ function Login() {
         {/* Signup Redirect */}
         <div className="text-center">
           <p className="small mb-0">
-            Not logged in yet?{" "}
+            Not registered yet?{" "}
             <Link to="/register" className="text-success fw-semibold text-decoration-none">
               Sign up
             </Link>

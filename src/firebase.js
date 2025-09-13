@@ -1,6 +1,7 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -13,21 +14,15 @@ const firebaseConfig = {
   measurementId: "G-8VMPM8M885"
 };
 
-// ✅ Initialize Firebase
+// Initialize
 const app = initializeApp(firebaseConfig);
 
-// ✅ Export Firestore (always safe)
+// Exports
 export const db = getFirestore(app);
+export const auth = getAuth(app);
 
-// ✅ Analytics only if supported (browser + correct setup)
 let analytics;
 isSupported().then((yes) => {
-  if (yes) {
-    analytics = getAnalytics(app);
-    console.log("Firebase Analytics enabled ✅");
-  } else {
-    console.warn("Analytics not supported in this environment ⚠️");
-  }
+  if (yes) analytics = getAnalytics(app);
 });
-
 export { analytics };

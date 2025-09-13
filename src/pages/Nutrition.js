@@ -9,11 +9,14 @@ import {
   query,
   orderBy,
 } from "firebase/firestore";
-import { db } from "../firebase";
 
-import LogMeal from "../components/LogMeal";
-import FoodLog from "../components/FoodLog";
-import DailyMacros from "../components/DailyMacros";
+// ✅ Import with .js extension
+import { db } from "../firebase.js";
+
+// ✅ Import components with .js extension
+import LogMeal from "../components/LogMeal.js";
+import FoodLog from "../components/FoodLog.js";
+import DailyMacros from "../components/DailyMacros.js";
 
 function Nutrition() {
   const [foodEntries, setFoodEntries] = useState([]);

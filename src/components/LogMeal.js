@@ -26,30 +26,32 @@ const LogMeal = ({ onAddFood }) => {
   };
 
   return (
-    <div className="card p-4 shadow-sm mb-4">
-      <h3 className="mb-3">Log a Meal</h3>
+    <div className="card shadow-sm mb-4">
+      <div className="card-body">
+        <h5 className="card-title">Log a Meal</h5>
 
-      <div className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search for a food item (e.g., chicken salad, apple)"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button className="btn btn-success" onClick={handleAddFood}>
-          + Add Food
-        </button>
-      </div>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search for a food item (e.g., chicken salad, apple)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className="btn btn-success" onClick={handleAddFood}>
+            + Add Food
+          </button>
+        </div>
 
-      <p className="text-muted text-center">Or Upload a Photo</p>
+        <p className="text-muted small text-center">Or Upload a Photo</p>
 
-      <div className="border rounded p-4 text-center bg-light mb-3">
-        <p className="mb-2">Drag & drop image here or browse</p>
-        <input type="file" className="form-control mb-2" />
-        <button className="btn btn-outline-primary" onClick={handleAnalyzeImage}>
-          🔍 Analyze Image
-        </button>
+        <div className="border rounded p-4 bg-light text-center">
+          <p className="mb-2">Drag & drop image here or browse</p>
+          <input type="file" className="form-control mb-3" />
+          <button className="btn btn-outline-primary" onClick={handleAnalyzeImage}>
+            🔍 Analyze Image
+          </button>
+        </div>
       </div>
     </div>
   );

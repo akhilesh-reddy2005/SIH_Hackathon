@@ -14,8 +14,8 @@ const DailyMacros = ({ totals }) => {
     datasets: [
       {
         data: [totals.protein, totals.carbs, totals.fats],
-        backgroundColor: ["#4CAF50", "#03A9F4", "#FFC107"],
-        hoverBackgroundColor: ["#45a049", "#0288d1", "#ffa000"],
+        backgroundColor: ["#198754", "#0d6efd", "#ffc107"],
+        hoverBackgroundColor: ["#157347", "#0b5ed7", "#e0a800"],
         borderWidth: 0,
       },
     ],
@@ -30,34 +30,41 @@ const DailyMacros = ({ totals }) => {
   };
 
   return (
-    <div className="card p-4 shadow-sm">
-      <h3 className="mb-3">Daily Macros</h3>
-      <p className="text-muted">Your macronutrient distribution today.</p>
+    <div className="card shadow-sm mb-4">
+      <div className="card-body text-center">
+        <h5 className="card-title">Daily Macros</h5>
+        <p className="text-muted small mb-4">
+          Your macronutrient distribution today
+        </p>
 
-      <div className="position-relative">
-        <Doughnut data={chartData} options={chartOptions} />
-        <div
-          className="position-absolute top-50 start-50 translate-middle fw-bold"
-          style={{ fontSize: "14px" }}
-        >
-          {totalGrams}g <br /> {totalCalories} kcal
+        <div className="position-relative d-inline-block mb-3" style={{ width: "200px", height: "200px" }}>
+          <Doughnut data={chartData} options={chartOptions} />
+          <div className="position-absolute top-50 start-50 translate-middle fw-bold">
+            {totalGrams}g <br /> {totalCalories} kcal
+          </div>
         </div>
-      </div>
 
-      <ul className="list-unstyled mt-3">
-        <li>
-          <span className="badge bg-success me-2">&nbsp;</span> Protein:{" "}
-          {((totals.protein / totalGrams) * 100 || 0).toFixed(0)}%
-        </li>
-        <li>
-          <span className="badge bg-info me-2">&nbsp;</span> Carbs:{" "}
-          {((totals.carbs / totalGrams) * 100 || 0).toFixed(0)}%
-        </li>
-        <li>
-          <span className="badge bg-warning me-2">&nbsp;</span> Fats:{" "}
-          {((totals.fats / totalGrams) * 100 || 0).toFixed(0)}%
-        </li>
-      </ul>
+        <ul className="list-group text-start">
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+              <span className="badge bg-success me-2">&nbsp;</span>Protein
+            </span>
+            <span>{((totals.protein / totalGrams) * 100 || 0).toFixed(0)}%</span>
+          </li>
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+              <span className="badge bg-primary me-2">&nbsp;</span>Carbs
+            </span>
+            <span>{((totals.carbs / totalGrams) * 100 || 0).toFixed(0)}%</span>
+          </li>
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+              <span className="badge bg-warning me-2">&nbsp;</span>Fats
+            </span>
+            <span>{((totals.fats / totalGrams) * 100 || 0).toFixed(0)}%</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
